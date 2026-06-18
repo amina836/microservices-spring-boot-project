@@ -13,14 +13,16 @@ Student Microservice
 School Microservice
 Inter-service communication using OpenFeign
 MySQL database for persistence
+─────────────────────────────
 🧱 Architecture Components
 API Gateway → Routes all client requests
 Eureka Server → Service registry & discovery
 Config Server → Centralized configuration management
 Student Service → Manages student data
 School Service → Manages school data and fetches students via Feign Client
+─────────────────────────────
 ⚙️ Technologies Used
-Java 21
+Java 17
 Spring Boot 3
 Spring Cloud
 Spring Data JPA
@@ -30,6 +32,7 @@ Eureka Server (Netflix)
 Spring Cloud Config Server
 MySQL
 Maven
+─────────────────────────────
 👩‍🎓 Student Service
 Features:
 Add student
@@ -37,6 +40,7 @@ Get all students
 Get students by school ID
 Base URL:
 /api/v1/students
+─────────────────────────────
 🏫 School Service
 Features:
 Add school
@@ -44,16 +48,19 @@ Get all schools
 Get school with students (via OpenFeign)
 Base URL:
 /api/v1/schools
+─────────────────────────────
 🔗 Inter-Service Communication
 
 Uses OpenFeign for communication between services:
 
 @FeignClient(name = "student-service")
+─────────────────────────────
 🌐 Eureka Server
 
 Service registry for all microservices.
 
 http://localhost:8761
+─────────────────────────────
 🚪 API Gateway
 
 Single entry point for all services.
@@ -63,6 +70,7 @@ Port: 8222
 Routes:
 /api/v1/students/** → Student Service
 /api/v1/schools/** → School Service
+─────────────────────────────
 ⚙️ Config Server
 
 Centralized configuration server.
@@ -70,11 +78,11 @@ Centralized configuration server.
 Port: 8888
 
 Stores configs for:
-
 student-service
 school-service
 gateway-service
 discovery-service
+─────────────────────────────
 🗄️ Database (MySQL)
 
 Each service uses MySQL database.
@@ -91,18 +99,20 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
-Create DBs:
+Create Databases:
 CREATE DATABASE student_db;
 CREATE DATABASE school_db;
+─────────────────────────────
 🚀 How to Run
 1️⃣ Start Config Server
 http://localhost:8888
 2️⃣ Start Eureka Server
 http://localhost:8761
-3️⃣ Start Services
+3️⃣ Start Microservices
 Student Service (8090)
 School Service (8070)
 API Gateway (8222)
+─────────────────────────────
 🧪 API Examples
 ➕ Create Student
 POST /api/v1/students
@@ -110,6 +120,7 @@ POST /api/v1/students
 GET /api/v1/students/school/{school-id}
 🏫 Get School with Students
 GET /api/v1/schools/with-students/{school-id}
+─────────────────────────────
 ⭐ Features
 Microservices architecture
 Service discovery with Eureka
@@ -117,6 +128,7 @@ API Gateway routing
 Centralized configuration
 Inter-service communication (Feign)
 MySQL persistence
+─────────────────────────────
 👨‍💻 Author
 
-Microservices project built for learning Spring Cloud architecture and real-world backend system design.
+Microservices project built for learning Spring Cloud architecture and real-world backend system design

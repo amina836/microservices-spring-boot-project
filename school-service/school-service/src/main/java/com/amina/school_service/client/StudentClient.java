@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.amina.school_service.dto.Student;
 
 @FeignClient(
-        name = "student-service",
-        url = "http://localhost:8091"
+        name = "student-service"
+       
 )
 public interface StudentClient {
 @GetMapping("/api/v1/students/school/{schoolId}")

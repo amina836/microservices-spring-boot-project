@@ -55,3 +55,24 @@ This project implements a microservices architecture with:
 ### Base URL:
 ```http
 /api/v1/students
+
+---
+
+## 🏫 School Service
+
+### Features:
+- Add school  
+- Get all schools  
+- Get school with students (Feign Client)  
+
+### Base URL:
+`/api/v1/schools`
+
+---
+
+## 🔗 Inter-Service Communication
+
+Uses OpenFeign:
+
+```java
+@FeignClient(name = "student-service")

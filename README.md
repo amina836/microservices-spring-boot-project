@@ -1,4 +1,4 @@
-<h1 align="center">📦 Microservices Project using Spring Boot 3 + Spring Cloud</h1>
+<h1 align="center">📦 Microservices Project using Spring Boot  + Spring Cloud</h1>
 
 <p align="center">
 A complete microservices-based system demonstrating real-world distributed system architecture using Spring Boot 3 and Spring Cloud.
@@ -32,7 +32,7 @@ This project implements a microservices architecture with:
 
 ## ⚙️ Technologies Used
 
-- Java 17  
+- Java 21  
 - Spring Boot 3  
 - Spring Cloud  
 - Spring Data JPA  
@@ -56,6 +56,14 @@ This project implements a microservices architecture with:
 `/api/v1/schools`
 
 ---
+## 🔗 Inter-Service Communication
+
+Uses **OpenFeign** for service-to-service communication.
+
+*java
+@FeignClient(name = "student-service")
+---
+
 ## 🌐 Eureka Server
 
 Service registry for all microservices:  

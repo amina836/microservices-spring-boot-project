@@ -53,26 +53,82 @@ This project implements a microservices architecture with:
 - Get students by school ID  
 
 ### Base URL:
-```http
-/api/v1/students
-
----
-
-## 🏫 School Service
-
-### Features:
-- Add school  
-- Get all schools  
-- Get school with students (Feign Client)  
-
-### Base URL:
 `/api/v1/schools`
 
 ---
+## 🌐 Eureka Server
 
-## 🔗 Inter-Service Communication
+Service registry for all microservices:  
+http://localhost:8761  
 
-Uses OpenFeign:
+---
 
-```java
-@FeignClient(name = "student-service")
+## 🚪 API Gateway
+
+**Port:** 8222  
+
+Routes:
+- `/api/v1/students/**` → Student Service  
+- `/api/v1/schools/**` → School Service  
+
+---
+
+## ⚙️ Config Server
+
+**Port:** 8888  
+
+Centralized configs for:
+- student-service  
+- school-service  
+- gateway-service  
+- discovery-service  
+
+---
+## 🚀 How to Run
+
+1️⃣ Start Config Server  
+http://localhost:8888  
+
+---
+
+2️⃣ Start Eureka Server  
+http://localhost:8761  
+
+---
+
+3️⃣ Start Microservices  
+- Student Service (8090)  
+- School Service (8070)  
+- API Gateway (8222)  
+
+---
+
+## 🧪 API Examples
+
+➕ Create Student  
+POST `/api/v1/students`  
+
+📥 Get Students by School  
+GET `/api/v1/students/school/{school-id}`  
+
+🏫 Get School with Students  
+GET `/api/v1/schools/with-students/{school-id}`  
+
+---
+
+## ⭐ Features
+
+- Microservices architecture  
+- Eureka service discovery  
+- API Gateway routing  
+- Centralized configuration  
+- OpenFeign communication  
+- MySQL persistence  
+
+---
+
+## 👨‍💻 Author
+
+Built for learning **Spring Cloud Microservices architecture**.
+---
+
